@@ -4,16 +4,20 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AppStateProvider } from "./components/AppStateContext";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <AppStateProvider>
-      <App />
-    </AppStateProvider>
-  </React.StrictMode>
+  <DndProvider backend={HTML5Backend}>
+    <React.StrictMode>
+      <AppStateProvider>
+        <App />
+      </AppStateProvider>
+    </React.StrictMode>
+  </DndProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
